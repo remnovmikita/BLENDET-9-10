@@ -7,3 +7,7 @@ export function createMarkup ({taskName, taskDescription, id}) {
   </li>
   `
 }
+
+export function createMarkupList(array) {
+  return array.map(createMarkup).join("");
+}
