@@ -1,7 +1,11 @@
 import { nanoid } from 'nanoid'
-import { createMarkup } from './js/markup-tasks';
+import { createMarkup, createMarkupList} from './js/markup-tasks';
 import { refs } from './js/refs';
 
+
+const KEY_OBJ = "tasksLists";
+let array = JSON.parse(localStorage.getItem(KEY_OBJ)) ?? [];
+refs.taskList.insertAdjacentHTML("beforeend", createMarkupList(array));
 
 
 
@@ -17,7 +21,11 @@ const obj = {taskName, taskDescription, id:nanoid()};
 
 refs.taskList.insertAdjacentHTML("beforeend", createMarkup(obj))
 
-form.reset();
+  refs.form.reset();
+  array.push(obj);
+  localStorage.setItem(KEY_OBJ, JSON.stringify(array));
 })
+
+
 
 
