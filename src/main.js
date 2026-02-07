@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import "./js/theme-switcher";
 import { createMarkup, createMarkupList} from './js/markup-tasks';
 import { refs } from './js/refs';
 
